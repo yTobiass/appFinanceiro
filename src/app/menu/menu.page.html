@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Menu Financeiro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <h2>Selecione uma das opções abaixo:</h2>
+  </div>
+
+  <ion-list lines="none">
+    <ion-button expand="block" color="secondary" class="ion-margin-bottom" (click)="navegar('cadastro')">
+      Cadastro (Cliente/Fornecedor)
+    </ion-button>
+
+    <ion-button expand="block" color="danger" class="ion-margin-bottom" (click)="navegar('pagar')">
+      Contas a Pagar
+    </ion-button>
+
+    <ion-button expand="block" color="success" class="ion-margin-bottom" (click)="navegar('receber')">
+      Contas a Receber
+    </ion-button>
+
+  </ion-list>
+
+  <ion-button expand="block" fill="clear" color="medium" fill="outline" (click)="navegar('login')">
+    Sair
+  </ion-button>
+</ion-content>

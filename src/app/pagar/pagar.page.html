@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contas a Pagar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nova Conta a Pagar</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Fornecedor</ion-label>
+        <ion-input [(ngModel)]="conta.fornecedor" placeholder="Nome do fornecedor"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Vencimento</ion-label>
+        <ion-input [(ngModel)]="conta.vencimento" type="date"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Pagamento</ion-label>
+        <ion-input [(ngModel)]="conta.pagamento" type="date"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Valor</ion-label>
+        <ion-input [(ngModel)]="conta.valor" type="number" placeholder="0.00"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="success" class="ion-margin-top" (click)="cadastrar()">
+        Salvar Conta
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" color="medium" (click)="limparFormulario()">
+        Limpar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Contas Pendentes</ion-card-title>
+    </ion-card-header>
+
+    <ion-list *ngIf="contasPagar.length > 0; else listaVazia">
+      <ion-item *ngFor="let item of contasPagar; let i = index">
+        <ion-label>
+          <h2>{{ item.fornecedor }}</h2>
+          <p>Vencimento: {{ item.vencimento }}</p>
+          <p>Pagamento: {{ item.pagamento }}</p>
+          <p><strong>Valor: R$ {{ item.valor }}</strong></p>
+        </ion-label>
+        <ion-button fill="clear" color="danger" slot="end" (click)="excluir(i)">
+          Excluir
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #listaVazia>
+      <ion-card-content>
+        Nenhuma conta para pagar!
+      </ion-card-content>
+    </ng-template>
+  </ion-card>
+</ion-content>

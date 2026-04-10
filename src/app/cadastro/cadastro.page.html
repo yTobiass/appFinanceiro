@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastro Clientes/Fornecedores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Novo Cadastro</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input [(ngModel)]="entidade.nome" placeholder="Nome completo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Tipo (F ou C)</ion-label>
+        <ion-input [(ngModel)]="entidade.tipo" placeholder="F - Fornecedor ou C - Cliente"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Endereço</ion-label>
+        <ion-input [(ngModel)]="entidade.endereco" placeholder="Insira o endereço completo"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="ion-margin-top" (click)="cadastrar()">
+        Salvar Cadastro
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" (click)="limparFormulario()">
+        Limpar
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" color="secondary" class="ion-margin-top" routerLink="/lista-cadastros">
+        Ver lista ({{ cadastroService.listaCadastros().length }})
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

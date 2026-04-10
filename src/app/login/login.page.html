@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Acesso Financeiro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <h2>Bem-vindo</h2>
+    <p>Logue para prosseguir!</p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input [(ngModel)]="usuario.nome" placeholder="Digite seu usuário" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-top">
+        <ion-label position="stacked">Senha</ion-label>
+        <ion-input [(ngModel)]="usuario.senha" placeholder="Digite sua senha" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="ion-margin-top" (click)="avancar()">
+        Avançar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
